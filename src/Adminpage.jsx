@@ -12,7 +12,7 @@ function Adminpage() {
           <Search className="text-3xl m-0" />
         </button>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         <ContactCard />
         <ContactCard />
         <ContactCard />

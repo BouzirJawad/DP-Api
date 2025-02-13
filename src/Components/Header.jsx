@@ -26,12 +26,12 @@ function Header() {
 
     useEffect(() => {
         const options = {
-          strings: ['Bouzir', 'Jawad', 'JUUBUU'],
+          strings: ['Bouzir', 'Jawad', 'JUUBUU', 'Bouzir Jawad', 'JUUBUU', 'Jawad Bouzir'],
           typeSpeed: 60,
           backSpeed: 30,
           loop: true,
         }
-        const typed = new Typed('.typing1', options)
+        const typed = new Typed('.headertyping', options)
         return () => typed.destroy()
       }, [])
 
@@ -39,7 +39,7 @@ function Header() {
         <header className="w-[95%] sm:w-[75%] mx-auto rounded-xl mainDiv">
             <nav className="flex items-center p-4 flex-wrap">
                     <div className="self-start pt-2 basis-1/2 xl:basis-2/6">
-                        <span className="typing1 text-blue-700 dark:text-amber-300"></span>'s Portfolio
+                        portfolio by <span className="headertyping text-blue-700 dark:text-amber-300"></span>
                     </div>
                     <div className="ml-auto lg:grow-0 flex justify-end basis-1/2 xl:basis-1/6">
                         <button onClick={()=> setNavOpen(!navOpen)} className="m-0 mr-2 text-3xl p-1 border block xl:hidden"><Menu className="my-0"/></button>

@@ -6,12 +6,12 @@ function Home() {
 
     useEffect(() => {
         const options = {
-          strings: ['Bouzir Jawad', 'JUUBUU', 'Jawad Bouzir'],
+          strings: ['Bouzir Jawad', 'JUUBUU', 'Jawad Bouzir', 'JUUBUU', 'Bouzir', 'Jawad'],
           typeSpeed: 60,
           backSpeed: 30,
           loop: true,
         }
-        const typed = new Typed('.typing2', options)
+        const typed = new Typed('.hometyping', options)
         return () => typed.destroy()
       }, [])
     
@@ -26,7 +26,7 @@ function Home() {
                 </div>
                 <div className="w-2/3 sm:w-1/2 mt-3 lg:space-y-5 xl:space-y-7">
                     <p className="text-2xl font-bold">Hello,</p>
-                    <p className="text-xl font-bold">I'm <span className="typing2 text-blue-700 dark:text-amber-300"></span>,</p>
+                    <p className="text-xl font-bold">I'm <span className="hometyping text-blue-700 dark:text-amber-300"></span>,</p>
                     <p className="text-lg">full stack developer / freelancer</p>
                     <button className="primary-btn mb-2 inline-block"
                     onClick={() => {

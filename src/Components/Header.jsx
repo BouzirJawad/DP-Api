@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react"
+import { Link } from "react-router-dom"
 import Typed from 'typed.js'
 import { Menu } from "./icons/Menu"
 import { Sun } from "./icons/Sun"
@@ -34,14 +35,6 @@ function Header() {
         return () => typed.destroy()
       }, [])
 
-    const scrollToSection = (id, factor = 1) => {
-        const el = document.getElementById(id)
-        if (el) {
-          const offset = el.offsetTop / factor
-          window.scrollTo({ top: offset, behavior: 'smooth' })
-        }
-      }
-
     return(
         <header className="w-[95%] sm:w-[75%] mx-auto rounded-xl mainDiv">
             <nav className="flex items-center p-4 flex-wrap">
@@ -56,20 +49,10 @@ function Header() {
                     <div className={`xl:flex xl:items-center ${navOpen ? 'block' : 'hidden'}`}>
                         <ul className="xl:flex xl:space-x-4 xl:items-center ml-3 xl:ml-auto mr-4">
                             <li>
-                                <a href="#" className="block mt-4 lg:inline-block lg:mt-0 hover:underline" 
-                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</a>
+                                <Link to="/admin" className="block mt-4 lg:inline-block lg:mt-0 hover:underline">Admin</Link>
                             </li>
                             <li>
-                                <a href="#" className="block mt-4 lg:inline-block lg:mt-0 hover:underline" 
-                                    onClick={() => scrollToSection('myAboutMeSection', 1.02)}>About</a>
-                            </li>
-                            <li>
-                                <a href="#" className="block mt-4 lg:inline-block lg:mt-0 hover:underline" 
-                                    onClick={() => scrollToSection('myProjectsSection', 1.05)}>Projects</a>
-                            </li>
-                            <li className="mt-1.5 xl:mt-0">
-                                <button className="primary-btn" 
-                                onClick={() => scrollToSection('myContactMeSection', 1.05)}>Contact me</button>
+                                <Link to="/" className="block mt-4 lg:inline-block lg:mt-0 hover:underline">Home</Link>
                             </li>
                         </ul>
                     </div>

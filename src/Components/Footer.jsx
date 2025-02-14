@@ -6,7 +6,7 @@ function Footer() {
     
     return(
     
-        <footer className="w-[95%] sm:w-[75%] rounded-xl text-center mx-auto my-2 p-4 sm:mt-7 mainDiv">
+        <footer className="w-[95%] sm:w-[75%] rounded-xl text-center mx-auto my-2 p-4 sm:mt-7 mainDiv ">
             <p className="font-bold text-lg">Created by JUUBUU © 2025</p>
             <div className="flex justify-center gap-7 text-4xl mt-2" >
                 <a href="https://github.com/BouzirJawad"

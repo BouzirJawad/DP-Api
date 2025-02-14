@@ -15,14 +15,23 @@ function Contact() {
     setFormData({ ...formData, [id]: value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    const response = await fetch("http://localhost:5000/api/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
       setValidated(true)
     } else {
-      alert('Form submitted successfully!')
-      setFormData({ firstName: '', lastName: '', email: '', message: '' })
-      setValidated(false)
+      if (response.ok) {
+        
+        alert('Form submitted successfully!')
+        setFormData({ firstName: '', lastName: '', email: '', message: '' })
+        setValidated(false)
+      }
     }
   }
 

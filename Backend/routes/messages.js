@@ -26,5 +26,34 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res)=>{
+    try {
+        const messageByID = await Message.findById(req.params.id)
+        if (!messageByID) {
+            return res.status(404).json({error: 'Message not found'})
+        }
+        res.json(messageByID);
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+});
+
+router.delete('/:id', async (req, res)=>{
+    try {
+        const messages = await Message.find();
+        if (messages.length === 0) {
+            return res.status(404).json({error: 'NO messages to display'});
+        } else {
+            const message = await Message.findByIdAndDelete(req.params.id);
+            if (!message) {
+                return res.status(404).json({error: 'Message not found'});
+            }
+            res.json({message: 'Message deleted successfully'});
+        }
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+});
+
 
 module.exports = router;

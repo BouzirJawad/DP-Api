@@ -9,7 +9,8 @@ function ContactCard(props) {
                 <p>{props.firstName}</p> 
                 <p>{props.lastName}</p>
             </div>
-            <button className='primary-btn ml-auto'>
+            <button className='primary-btn ml-auto'
+            onClick={() => props.onDelete(props.id)}>
                 <Delete />
             </button>
         </div>

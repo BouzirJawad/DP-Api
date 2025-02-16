@@ -1,7 +1,6 @@
 import { Search } from './Components/icons/Search'
 import ContactCard from './Components/ContactCard'
 import { useEffect, useState } from 'react';
-
 import React from 'react'
 
 function Adminpage() {
@@ -14,15 +13,18 @@ function Adminpage() {
   }, []);
 
   const fetchMessages = () => {
-    fetch("http://localhost:5000/api/messages")
+    fetch("http://127.0.0.1:5000/api/messages")
       .then((res) => res.json())
-      .then((data) => setMessages(data))
+      .then((data) => {
+        console.log(data);
+        setMessages(data);
+      })
       .catch((err) => console.error("Error fetching messages:", err));
   };
 
   const deleteMessage = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/messages/${id}`, {
+      const response = await fetch(`http://127.0.0.1:5000/api/messages/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
@@ -34,6 +36,7 @@ function Adminpage() {
       console.error("Error deleting message:", error);
     }
   };
+
 
   const filteredMessages = messages.filter((msg) =>
     msg.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -53,7 +56,7 @@ function Adminpage() {
         {messages.length > 0 ? (
 
           <div className="grid md:grid-cols-2 grid-flow-col lg:grid-cols-3 gap-3">
-            {messages.map((msg) => (
+            {filteredMessages.map((msg) => (
               <ContactCard key={msg._id} id={msg._id} firstName={msg.firstName} lastName={msg.lastName} email={msg.email} message={msg.message} onDelete={deleteMessage}/>
             ))}
           </div>

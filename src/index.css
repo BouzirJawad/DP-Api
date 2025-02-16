@@ -18,7 +18,7 @@
     button{
         @apply px-3 text-sm py-2 rounded-lg cursor-pointer transition 
         hover:duration-400 hover:opacity-80 hover:scale-110
-        disabled:bg-slate-400/30 disabled:cursor-auto
+        disabled:bg-slate-400/30 disabled:cursor-auto 
         hover:disabled:opacity-100 hover:disabled:scale-none;
     }
 
@@ -40,3 +40,5 @@
         @apply cursor-pointer;
     }
 }
+
+
